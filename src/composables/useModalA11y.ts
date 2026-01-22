@@ -4,7 +4,15 @@ function getFocusable(root: HTMLElement): HTMLElement[] {
   const nodes = root.querySelectorAll<HTMLElement>(
     'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
   )
-  return Array.from(nodes).filter((el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'))
+
+  const focusable: HTMLElement[] = []
+  for (let i = 0; i < nodes.length; i++) {
+    const el = nodes[i]!
+    if (el.hasAttribute('disabled')) continue
+    if (el.getAttribute('aria-hidden')) continue
+    focusable.push(el)
+  }
+  return focusable
 }
 
 export interface ModalA11yOptions {
