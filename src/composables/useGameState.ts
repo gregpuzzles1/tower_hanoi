@@ -6,7 +6,11 @@ import { isLegalMove, isSolved, topDiscSize } from '../types/game'
 const INVALID_MOVE_MESSAGE = "Larger discs can't be placed on smaller ones."
 
 function initialTower(discCount: number): number[] {
-  return Array.from({ length: discCount }, (_, i) => discCount - i)
+  const tower: number[] = []
+  for (let i = discCount; i >= 1; i--) {
+    tower.push(i)
+  }
+  return tower
 }
 
 function clampDiscCount(value: number): number {
