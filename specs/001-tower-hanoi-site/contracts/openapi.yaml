@@ -1,0 +1,12 @@
+openapi: 3.0.3
+info:
+  title: tower_hanoi (No Backend API)
+  version: 0.0.0
+  description: |
+    This feature is implemented as a static site with no backend API.
+
+    This OpenAPI document exists to reserve the /contracts output location
+    used by the Speckit workflow. Future versions may add API endpoints
+    (e.g., via API Gateway + Lambda + DynamoDB) for persistence or analytics.
+servers: []
+paths: {}

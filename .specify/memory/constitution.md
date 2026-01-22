@@ -1,50 +1,93 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+
+- Version change: N/A (template) -> 1.0.0
+- Modified principles: Template placeholders -> Static-first, Pages-compatible builds, CI as gate, A11y/perf baseline, Supply-chain safety
+- Added sections: Filled Platform & Deployment; Filled Development Workflow; Filled Governance
+- Removed sections: None
+Templates requiring updates:
+- updated: .specify/templates/plan-template.md
+- updated: .specify/templates/tasks-template.md
+- pending: None
+- Deferred TODOs: None
+-->
+
+# tower_hanoi Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Static-First
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+This project MUST be deployable as a static website (HTML/CSS/JS + assets).
+It MUST NOT require a server runtime, databases, or long-lived backend services to function.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+Rationale: GitHub Pages hosts static content; keeping it static simplifies security and ops.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. GitHub Pages Compatibility
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+The deployed output MUST be plain static files produced by a deterministic build.
+All URLs and asset references MUST work when the site is served from a repository subpath
+(e.g., `https://<user>.github.io/<repo>/`) unless the repository is configured for a custom domain.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Rationale: GitHub Pages commonly serves from a base path; broken relative paths are the #1 failure mode.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### III. CI Is The Quality Gate
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+Every change merged to the default branch MUST pass automated checks in GitHub Actions.
+At minimum this includes:
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- A clean install/build step that fails on errors
+- A deployment workflow (or reusable workflow) that publishes the built static output to GitHub Pages
+
+Tests are allowed and encouraged, but not required for this repository unless a feature spec explicitly
+demands them.
+
+Rationale: For a static app, build integrity is the essential guardrail.
+
+### IV. Accessibility And Performance Baseline
+
+User-facing pages MUST be usable with keyboard navigation and readable with semantic HTML.
+Pages MUST load without console errors in a modern evergreen browser.
+
+Rationale: A small baseline keeps the site broadly usable without overburdening development.
+
+### V. Client-Side Security And Supply Chain
+
+Secrets MUST NOT be embedded in client-side code or committed to the repository.
+Third-party GitHub Actions in workflows MUST be pinned to a full-length commit SHA.
+Dependencies MUST be locked (lockfile committed) and updated via routine maintenance.
+
+Rationale: GitHub Pages is public by default; supply-chain and accidental secret exposure are the main risks.
+
+## Platform & Deployment
+
+- Hosting target is GitHub Pages.
+- Deployments MUST be performed via GitHub Actions.
+- The deploy workflow MUST use GitHub's supported Pages flow (e.g., `actions/deploy-pages`) and
+	run with least-privilege permissions.
+- The build output directory MUST be clearly defined (commonly `dist/` or `build/`) and only built
+	artifacts are published.
+- The site MUST not rely on runtime environment variables at request time.
+
+## Development Workflow
+
+- Default branch MUST remain deployable at all times.
+- Changes SHOULD be made via pull requests.
+- Pull requests MUST show green CI (build + Pages deploy workflow validation) before merge.
+- Breaking changes to URLs, routing, or deployment configuration MUST be called out in the PR description.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution is the project-wide override for build, quality gates, and deployment constraints.
+- Amendments:
+	- Proposed via pull request modifying `.specify/memory/constitution.md`
+	- Must include a brief rationale and any required template updates
+	- Requires approval from a repository maintainer
+- Versioning policy for this document follows semantic versioning:
+	- MAJOR: Removes or redefines a non-negotiable rule
+	- MINOR: Adds a new non-negotiable rule or materially expands constraints
+	- PATCH: Clarifies wording without changing meaning
+- Compliance review expectation: feature plans and PRs MUST include a short constitution check
+	describing how the change remains Pages-compatible.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-01-22 | **Last Amended**: 2026-01-22

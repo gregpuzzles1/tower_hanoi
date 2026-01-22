@@ -33,6 +33,13 @@
 
 [Gates determined based on constitution file]
 
+For this repository (GitHub Pages static site), plans typically confirm:
+
+- Build produces static files only (no server/runtime dependencies)
+- Routes/asset URLs work under a repository base path
+- GitHub Actions build step fails on errors and deploys to Pages
+- No secrets are required in client-side code
+
 ## Project Structure
 
 ### Documentation (this feature)

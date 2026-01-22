@@ -1,0 +1,25 @@
+:root {
+  --bg: #0b1020;
+  --fg: #e9edf7;
+
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-border: rgba(255, 255, 255, 0.12);
+
+  --accent: #7c5cff;
+  --accent-2: #00d4ff;
+
+  --radius: 14px;
+
+  --dur-fast: 120ms;
+  --dur-med: 220ms;
+  --dur-slow: 420ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-med: 0ms;
+    --dur-slow: 0ms;
+  }
+}

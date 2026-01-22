@@ -1,0 +1,662 @@
+{
+  "generatedAt": "2026-01-22T17:39:45.857Z",
+  "inputPath": "specs/001-tower-hanoi-site/tasks.md",
+  "summary": {
+    "total": 49,
+    "completed": 44,
+    "incomplete": 5,
+    "parallel": 19
+  },
+  "phases": [
+    {
+      "header": "Phase 1: Setup (Shared Infrastructure)",
+      "title": "Phase 1: Setup (Shared Infrastructure)",
+      "tasks": [
+        {
+          "id": "T001",
+          "done": true,
+          "parallel": false,
+          "story": null,
+          "description": "Initialize Vite Vue+TS project at repo root (creates `package.json`, `index.html`, `vite.config.ts`, `src/`)",
+          "filePaths": [
+            "package.json",
+            "index.html",
+            "vite.config.ts",
+            "src/"
+          ],
+          "raw": "- [x] T001 Initialize Vite Vue+TS project at repo root (creates `package.json`, `index.html`, `vite.config.ts`, `src/`)"
+        },
+        {
+          "id": "T002",
+          "done": true,
+          "parallel": true,
+          "story": null,
+          "description": "Add GitHub Pages workflow in `.github/workflows/pages.yml` using official Pages flow (`actions/configure-pages` → `actions/upload-pages-artifact` → `actions/deploy-pages`), with explicit least-privilege `permissions:` and all Actions pinned to full-length commit SHAs (no `@v*` tags) (build `npm ci && npm run build`, upload `dist/`, deploy)",
+          "filePaths": [
+            ".github/workflows/pages.yml",
+            "actions/configure-pages",
+            "actions/upload-pages-artifact",
+            "actions/deploy-pages",
+            "dist/"
+          ],
+          "raw": "- [x] T002 [P] Add GitHub Pages workflow in `.github/workflows/pages.yml` using official Pages flow (`actions/configure-pages` → `actions/upload-pages-artifact` → `actions/deploy-pages`), with explicit least-privilege `permissions:` and all Actions pinned to full-length commit SHAs (no `@v*` tags) (build `npm ci && npm run build`, upload `dist/`, deploy)"
+        },
+        {
+          "id": "T003",
+          "done": true,
+          "parallel": false,
+          "story": null,
+          "description": "Configure Vite base path for Pages in `vite.config.ts` (set `base: '/tower_hanoi/'`)",
+          "filePaths": [
+            "vite.config.ts",
+            "base: '/tower_hanoi/'"
+          ],
+          "raw": "- [x] T003 Configure Vite base path for Pages in `vite.config.ts` (set `base: '/tower_hanoi/'`)"
+        },
+        {
+          "id": "T004",
+          "done": true,
+          "parallel": false,
+          "story": null,
+          "description": "Configure Vue Router hash routing in `src/router/index.ts` (`createWebHashHistory()`)",
+          "filePaths": [
+            "src/router/index.ts"
+          ],
+          "raw": "- [x] T004 Configure Vue Router hash routing in `src/router/index.ts` (`createWebHashHistory()`)"
+        },
+        {
+          "id": "T005",
+          "done": true,
+          "parallel": true,
+          "story": null,
+          "description": "Add baseline styles in `src/styles/base.css` and `src/styles/theme.css` (CSS variables, responsive defaults)",
+          "filePaths": [
+            "src/styles/base.css",
+            "src/styles/theme.css"
+          ],
+          "raw": "- [x] T005 [P] Add baseline styles in `src/styles/base.css` and `src/styles/theme.css` (CSS variables, responsive defaults)"
+        },
+        {
+          "id": "T006",
+          "done": true,
+          "parallel": false,
+          "story": null,
+          "description": "Wire app entry in `src/main.ts` and `src/App.vue` (router + global styles import)",
+          "filePaths": [
+            "src/main.ts",
+            "src/App.vue"
+          ],
+          "raw": "- [x] T006 Wire app entry in `src/main.ts` and `src/App.vue` (router + global styles import)"
+        }
+      ]
+    },
+    {
+      "header": "Phase 2: Foundational (Blocking Prerequisites)",
+      "title": "Phase 2: Foundational (Blocking Prerequisites)",
+      "tasks": [
+        {
+          "id": "T007",
+          "done": true,
+          "parallel": false,
+          "story": null,
+          "description": "Define core game types in `src/types/game.ts` (GameStatus, TowerId, Disc, Move, SelectionState, AnimationState)",
+          "filePaths": [
+            "src/types/game.ts"
+          ],
+          "raw": "- [x] T007 Define core game types in `src/types/game.ts` (GameStatus, TowerId, Disc, Move, SelectionState, AnimationState)"
+        },
+        {
+          "id": "T008",
+          "done": true,
+          "parallel": false,
+          "story": null,
+          "description": "Implement game rules + state machine in `src/composables/useGameState.ts` (init/reset, legal move check, apply move, solved detection)",
+          "filePaths": [
+            "src/composables/useGameState.ts"
+          ],
+          "raw": "- [x] T008 Implement game rules + state machine in `src/composables/useGameState.ts` (init/reset, legal move check, apply move, solved detection)"
+        },
+        {
+          "id": "T009",
+          "done": true,
+          "parallel": false,
+          "story": null,
+          "description": "Implement content model in `src/content/copy.ts` (how-to, history, applications strings/arrays)",
+          "filePaths": [
+            "src/content/copy.ts"
+          ],
+          "raw": "- [x] T009 Implement content model in `src/content/copy.ts` (how-to, history, applications strings/arrays)"
+        },
+        {
+          "id": "T010",
+          "done": true,
+          "parallel": false,
+          "story": null,
+          "description": "Create component skeletons (empty but compiling) in `src/components/TopBar.vue`, `src/components/NewGameModal.vue`, `src/components/GameBoard.vue`, `src/components/TowerView.vue`, `src/components/DiscView.vue`, `src/components/WinDialog.vue`, `src/components/AppFooter.vue`",
+          "filePaths": [
+            "src/components/TopBar.vue",
+            "src/components/NewGameModal.vue",
+            "src/components/GameBoard.vue",
+            "src/components/TowerView.vue",
+            "src/components/DiscView.vue",
+            "src/components/WinDialog.vue",
+            "src/components/AppFooter.vue"
+          ],
+          "raw": "- [x] T010 Create component skeletons (empty but compiling) in `src/components/TopBar.vue`, `src/components/NewGameModal.vue`, `src/components/GameBoard.vue`, `src/components/TowerView.vue`, `src/components/DiscView.vue`, `src/components/WinDialog.vue`, `src/components/AppFooter.vue`"
+        },
+        {
+          "id": "T011",
+          "done": true,
+          "parallel": false,
+          "story": null,
+          "description": "Define shared animation tokens in `src/styles/theme.css` (durations, easing, reduced-motion overrides)",
+          "filePaths": [
+            "src/styles/theme.css"
+          ],
+          "raw": "- [x] T011 Define shared animation tokens in `src/styles/theme.css` (durations, easing, reduced-motion overrides)"
+        }
+      ]
+    },
+    {
+      "header": "Phase 3: User Story 1 — Start A New Game (Priority: P1) 🎯 MVP",
+      "title": "Phase 3: User Story 1 — Start A New Game (Priority: P1) 🎯 MVP",
+      "tasks": [
+        {
+          "id": "T012",
+          "done": true,
+          "parallel": true,
+          "story": "US1",
+          "description": "Implement top bar UI in `src/components/TopBar.vue` (title “Tower of Hanoi”, “New Game ▼” button)",
+          "filePaths": [
+            "src/components/TopBar.vue"
+          ],
+          "raw": "- [x] T012 [P] [US1] Implement top bar UI in `src/components/TopBar.vue` (title “Tower of Hanoi”, “New Game ▼” button)"
+        },
+        {
+          "id": "T013",
+          "done": true,
+          "parallel": true,
+          "story": "US1",
+          "description": "Implement modal shell in `src/components/NewGameModal.vue` (centered overlay, backdrop, Start/Cancel buttons)",
+          "filePaths": [
+            "src/components/NewGameModal.vue"
+          ],
+          "raw": "- [x] T013 [P] [US1] Implement modal shell in `src/components/NewGameModal.vue` (centered overlay, backdrop, Start/Cancel buttons)"
+        },
+        {
+          "id": "T014",
+          "done": true,
+          "parallel": true,
+          "story": "US1",
+          "description": "Implement modal accessibility helper in `src/composables/useModalA11y.ts` (focus trap, restore focus, inert background)",
+          "filePaths": [
+            "src/composables/useModalA11y.ts"
+          ],
+          "raw": "- [x] T014 [P] [US1] Implement modal accessibility helper in `src/composables/useModalA11y.ts` (focus trap, restore focus, inert background)"
+        },
+        {
+          "id": "T015",
+          "done": true,
+          "parallel": false,
+          "story": "US1",
+          "description": "Wire modal open/close state in `src/App.vue` (TopBar triggers, modal emits close)",
+          "filePaths": [
+            "src/App.vue"
+          ],
+          "raw": "- [x] T015 [US1] Wire modal open/close state in `src/App.vue` (TopBar triggers, modal emits close)"
+        },
+        {
+          "id": "T016",
+          "done": true,
+          "parallel": false,
+          "story": "US1",
+          "description": "Implement disc count control (3–7) in `src/components/NewGameModal.vue` (buttons clamp range)",
+          "filePaths": [
+            "src/components/NewGameModal.vue"
+          ],
+          "raw": "- [x] T016 [US1] Implement disc count control (3–7) in `src/components/NewGameModal.vue` (buttons clamp range)"
+        },
+        {
+          "id": "T017",
+          "done": true,
+          "parallel": false,
+          "story": "US1",
+          "description": "Display minimum moves in `src/components/NewGameModal.vue` (compute $2^n - 1$)",
+          "filePaths": [
+            "src/components/NewGameModal.vue"
+          ],
+          "raw": "- [x] T017 [US1] Display minimum moves in `src/components/NewGameModal.vue` (compute $2^n - 1$)"
+        },
+        {
+          "id": "T018",
+          "done": true,
+          "parallel": false,
+          "story": "US1",
+          "description": "Implement Start/Cancel behaviors in `src/components/NewGameModal.vue` (Start calls `useGameState.reset(n)`, Cancel just closes)",
+          "filePaths": [
+            "src/components/NewGameModal.vue",
+            "useGameState.reset(n)"
+          ],
+          "raw": "- [x] T018 [US1] Implement Start/Cancel behaviors in `src/components/NewGameModal.vue` (Start calls `useGameState.reset(n)`, Cancel just closes)"
+        },
+        {
+          "id": "T019",
+          "done": true,
+          "parallel": false,
+          "story": "US1",
+          "description": "Implement Esc/backdrop dismiss requirements in `src/components/NewGameModal.vue` (close without changing game)",
+          "filePaths": [
+            "src/components/NewGameModal.vue"
+          ],
+          "raw": "- [x] T019 [US1] Implement Esc/backdrop dismiss requirements in `src/components/NewGameModal.vue` (close without changing game)"
+        }
+      ]
+    },
+    {
+      "header": "Phase 4: User Story 2 — Play With Mouse Or Touch (Priority: P2)",
+      "title": "Phase 4: User Story 2 — Play With Mouse Or Touch (Priority: P2)",
+      "tasks": [
+        {
+          "id": "T020",
+          "done": true,
+          "parallel": true,
+          "story": "US2",
+          "description": "Implement game board layout in `src/components/GameBoard.vue` (three towers, responsive spacing)",
+          "filePaths": [
+            "src/components/GameBoard.vue"
+          ],
+          "raw": "- [x] T020 [P] [US2] Implement game board layout in `src/components/GameBoard.vue` (three towers, responsive spacing)"
+        },
+        {
+          "id": "T021",
+          "done": true,
+          "parallel": true,
+          "story": "US2",
+          "description": "Implement tower rendering in `src/components/TowerView.vue` (stack discs, tower hit target)",
+          "filePaths": [
+            "src/components/TowerView.vue"
+          ],
+          "raw": "- [x] T021 [P] [US2] Implement tower rendering in `src/components/TowerView.vue` (stack discs, tower hit target)"
+        },
+        {
+          "id": "T022",
+          "done": true,
+          "parallel": true,
+          "story": "US2",
+          "description": "Implement disc rendering in `src/components/DiscView.vue` (size-to-width mapping, distinct colors 1–7)",
+          "filePaths": [
+            "src/components/DiscView.vue"
+          ],
+          "raw": "- [x] T022 [P] [US2] Implement disc rendering in `src/components/DiscView.vue` (size-to-width mapping, distinct colors 1–7)"
+        },
+        {
+          "id": "T023",
+          "done": true,
+          "parallel": false,
+          "story": "US2",
+          "description": "Implement click/tap selection flow in `src/components/GameBoard.vue` (select source top disc, highlight/lift)",
+          "filePaths": [
+            "src/components/GameBoard.vue"
+          ],
+          "raw": "- [x] T023 [US2] Implement click/tap selection flow in `src/components/GameBoard.vue` (select source top disc, highlight/lift)"
+        },
+        {
+          "id": "T024",
+          "done": true,
+          "parallel": false,
+          "story": "US2",
+          "description": "Implement click/tap cancel behavior in `src/components/GameBoard.vue` (click same tower again cancels)",
+          "filePaths": [
+            "src/components/GameBoard.vue"
+          ],
+          "raw": "- [x] T024 [US2] Implement click/tap cancel behavior in `src/components/GameBoard.vue` (click same tower again cancels)"
+        },
+        {
+          "id": "T025",
+          "done": true,
+          "parallel": false,
+          "story": "US2",
+          "description": "Implement legal move execution in `src/components/GameBoard.vue` (call `useGameState.move(from,to)`; update stacks)",
+          "filePaths": [
+            "src/components/GameBoard.vue",
+            "useGameState.move(from,to)"
+          ],
+          "raw": "- [x] T025 [US2] Implement legal move execution in `src/components/GameBoard.vue` (call `useGameState.move(from,to)`; update stacks)"
+        },
+        {
+          "id": "T026",
+          "done": true,
+          "parallel": false,
+          "story": "US2",
+          "description": "Implement legal-move animation in `src/components/DiscView.vue` + `src/styles/base.css` (disc visually moves to destination)",
+          "filePaths": [
+            "src/components/DiscView.vue",
+            "src/styles/base.css"
+          ],
+          "raw": "- [x] T026 [US2] Implement legal-move animation in `src/components/DiscView.vue` + `src/styles/base.css` (disc visually moves to destination)"
+        }
+      ]
+    },
+    {
+      "header": "Phase 5: User Story 3 — Play With Keyboard (Priority: P3)",
+      "title": "Phase 5: User Story 3 — Play With Keyboard (Priority: P3)",
+      "tasks": [
+        {
+          "id": "T027",
+          "done": true,
+          "parallel": true,
+          "story": "US3",
+          "description": "Implement keyboard controller in `src/composables/useKeyboardControls.ts` (key mapping, prevent default where appropriate)",
+          "filePaths": [
+            "src/composables/useKeyboardControls.ts"
+          ],
+          "raw": "- [x] T027 [P] [US3] Implement keyboard controller in `src/composables/useKeyboardControls.ts` (key mapping, prevent default where appropriate)"
+        },
+        {
+          "id": "T028",
+          "done": true,
+          "parallel": false,
+          "story": "US3",
+          "description": "Add destination focus state in `src/composables/useGameState.ts` (or `src/components/GameBoard.vue`) to support Left/Right focus",
+          "filePaths": [
+            "src/composables/useGameState.ts",
+            "src/components/GameBoard.vue"
+          ],
+          "raw": "- [x] T028 [US3] Add destination focus state in `src/composables/useGameState.ts` (or `src/components/GameBoard.vue`) to support Left/Right focus"
+        },
+        {
+          "id": "T029",
+          "done": true,
+          "parallel": false,
+          "story": "US3",
+          "description": "Render focus indicator in `src/components/TowerView.vue` + `src/styles/base.css` (visible focus ring/outline)",
+          "filePaths": [
+            "src/components/TowerView.vue",
+            "src/styles/base.css"
+          ],
+          "raw": "- [x] T029 [US3] Render focus indicator in `src/components/TowerView.vue` + `src/styles/base.css` (visible focus ring/outline)"
+        },
+        {
+          "id": "T030",
+          "done": true,
+          "parallel": false,
+          "story": "US3",
+          "description": "Integrate keyboard controller in `src/components/GameBoard.vue` (only active when game area focused; disabled when modal open)",
+          "filePaths": [
+            "src/components/GameBoard.vue"
+          ],
+          "raw": "- [x] T030 [US3] Integrate keyboard controller in `src/components/GameBoard.vue` (only active when game area focused; disabled when modal open)"
+        },
+        {
+          "id": "T031",
+          "done": true,
+          "parallel": false,
+          "story": "US3",
+          "description": "Ensure Esc cancels selection in `src/composables/useGameState.ts` and/or `src/components/GameBoard.vue`",
+          "filePaths": [
+            "src/composables/useGameState.ts",
+            "src/components/GameBoard.vue"
+          ],
+          "raw": "- [x] T031 [US3] Ensure Esc cancels selection in `src/composables/useGameState.ts` and/or `src/components/GameBoard.vue`"
+        }
+      ]
+    },
+    {
+      "header": "Phase 6: User Story 4 — Invalid Move Feedback (Priority: P4)",
+      "title": "Phase 6: User Story 4 — Invalid Move Feedback (Priority: P4)",
+      "tasks": [
+        {
+          "id": "T032",
+          "done": true,
+          "parallel": true,
+          "story": "US4",
+          "description": "Add invalid-move feedback state in `src/composables/useGameState.ts` (lastInvalidMoveAt, lastInvalidDiscSize, etc.)",
+          "filePaths": [
+            "src/composables/useGameState.ts"
+          ],
+          "raw": "- [x] T032 [P] [US4] Add invalid-move feedback state in `src/composables/useGameState.ts` (lastInvalidMoveAt, lastInvalidDiscSize, etc.)"
+        },
+        {
+          "id": "T033",
+          "done": true,
+          "parallel": true,
+          "story": "US4",
+          "description": "Implement tooltip UI in `src/components/DiscView.vue` (exact text: \"Larger discs can't be placed on smaller ones.\")",
+          "filePaths": [
+            "src/components/DiscView.vue"
+          ],
+          "raw": "- [x] T033 [P] [US4] Implement tooltip UI in `src/components/DiscView.vue` (exact text: \"Larger discs can't be placed on smaller ones.\")"
+        },
+        {
+          "id": "T034",
+          "done": true,
+          "parallel": true,
+          "story": "US4",
+          "description": "Implement jiggle + snap-back animation in `src/styles/base.css` (keyframes; respects reduced-motion tokens)",
+          "filePaths": [
+            "src/styles/base.css"
+          ],
+          "raw": "- [x] T034 [P] [US4] Implement jiggle + snap-back animation in `src/styles/base.css` (keyframes; respects reduced-motion tokens)"
+        },
+        {
+          "id": "T035",
+          "done": true,
+          "parallel": false,
+          "story": "US4",
+          "description": "Wire invalid move handling in `src/components/GameBoard.vue` (reject move, trigger feedback, cancel selection)",
+          "filePaths": [
+            "src/components/GameBoard.vue"
+          ],
+          "raw": "- [x] T035 [US4] Wire invalid move handling in `src/components/GameBoard.vue` (reject move, trigger feedback, cancel selection)"
+        },
+        {
+          "id": "T036",
+          "done": true,
+          "parallel": false,
+          "story": "US4",
+          "description": "Enforce “no input during movingDisc animation” in `src/composables/useGameState.ts` (ignore/lock)",
+          "filePaths": [
+            "src/composables/useGameState.ts"
+          ],
+          "raw": "- [x] T036 [US4] Enforce “no input during movingDisc animation” in `src/composables/useGameState.ts` (ignore/lock)"
+        }
+      ]
+    },
+    {
+      "header": "Phase 7: User Story 5 — Win Celebration, Content, And Footer (Priority: P5)",
+      "title": "Phase 7: User Story 5 — Win Celebration, Content, And Footer (Priority: P5)",
+      "tasks": [
+        {
+          "id": "T037",
+          "done": true,
+          "parallel": true,
+          "story": "US5",
+          "description": "Add win dialog UI in `src/components/WinDialog.vue` (congrats message, close action)",
+          "filePaths": [
+            "src/components/WinDialog.vue"
+          ],
+          "raw": "- [x] T037 [P] [US5] Add win dialog UI in `src/components/WinDialog.vue` (congrats message, close action)"
+        },
+        {
+          "id": "T038",
+          "done": true,
+          "parallel": true,
+          "story": "US5",
+          "description": "Add confetti integration in `src/composables/useConfetti.ts` (lazy-load `js-confetti`, trigger on win)",
+          "filePaths": [
+            "src/composables/useConfetti.ts"
+          ],
+          "raw": "- [x] T038 [P] [US5] Add confetti integration in `src/composables/useConfetti.ts` (lazy-load `js-confetti`, trigger on win)"
+        },
+        {
+          "id": "T039",
+          "done": true,
+          "parallel": false,
+          "story": "US5",
+          "description": "Trigger win celebration from `src/composables/useGameState.ts` + `src/App.vue` when solved condition met",
+          "filePaths": [
+            "src/composables/useGameState.ts",
+            "src/App.vue"
+          ],
+          "raw": "- [x] T039 [US5] Trigger win celebration from `src/composables/useGameState.ts` + `src/App.vue` when solved condition met"
+        },
+        {
+          "id": "T040",
+          "done": true,
+          "parallel": true,
+          "story": "US5",
+          "description": "Implement content sections in `src/App.vue` using `src/content/copy.ts` (How to play, history, applications)",
+          "filePaths": [
+            "src/App.vue",
+            "src/content/copy.ts"
+          ],
+          "raw": "- [x] T040 [P] [US5] Implement content sections in `src/App.vue` using `src/content/copy.ts` (How to play, history, applications)"
+        },
+        {
+          "id": "T041",
+          "done": true,
+          "parallel": true,
+          "story": "US5",
+          "description": "Implement footer in `src/components/AppFooter.vue` (© 2025-<current year> Greg Christian; links + email)",
+          "filePaths": [
+            "src/components/AppFooter.vue"
+          ],
+          "raw": "- [x] T041 [P] [US5] Implement footer in `src/components/AppFooter.vue` (© 2025-<current year> Greg Christian; links + email)"
+        },
+        {
+          "id": "T042",
+          "done": true,
+          "parallel": false,
+          "story": "US5",
+          "description": "Implement year auto-update logic in `src/components/AppFooter.vue` (compute end year at runtime)",
+          "filePaths": [
+            "src/components/AppFooter.vue"
+          ],
+          "raw": "- [x] T042 [US5] Implement year auto-update logic in `src/components/AppFooter.vue` (compute end year at runtime)"
+        },
+        {
+          "id": "T043",
+          "done": true,
+          "parallel": false,
+          "story": "US5",
+          "description": "Validate footer links in `src/components/AppFooter.vue` target `https://github.com/gregpuzzles1/tower_hanoi` and `/issues/new`",
+          "filePaths": [
+            "src/components/AppFooter.vue",
+            "https://github.com/gregpuzzles1/tower_hanoi",
+            "/issues/new"
+          ],
+          "raw": "- [x] T043 [US5] Validate footer links in `src/components/AppFooter.vue` target `https://github.com/gregpuzzles1/tower_hanoi` and `/issues/new`"
+        }
+      ]
+    },
+    {
+      "header": "Phase 8: Polish & Cross-Cutting Concerns",
+      "title": "Phase 8: Polish & Cross-Cutting Concerns",
+      "tasks": [
+        {
+          "id": "T044",
+          "done": false,
+          "parallel": true,
+          "story": null,
+          "description": "Add `prefers-reduced-motion` handling in `src/styles/base.css` and confetti trigger in `src/composables/useConfetti.ts`",
+          "filePaths": [
+            "src/styles/base.css",
+            "src/composables/useConfetti.ts"
+          ],
+          "raw": "- [ ] T044 [P] Add `prefers-reduced-motion` handling in `src/styles/base.css` and confetti trigger in `src/composables/useConfetti.ts`"
+        },
+        {
+          "id": "T045",
+          "done": false,
+          "parallel": false,
+          "story": null,
+          "description": "Improve responsive layout and touch targets in `src/styles/base.css` and `src/components/*` (mobile usability)",
+          "filePaths": [
+            "src/styles/base.css",
+            "src/components/*"
+          ],
+          "raw": "- [ ] T045 Improve responsive layout and touch targets in `src/styles/base.css` and `src/components/*` (mobile usability)"
+        },
+        {
+          "id": "T046",
+          "done": false,
+          "parallel": false,
+          "story": null,
+          "description": "Add basic SEO/meta in `index.html` (title, description, social preview placeholders)",
+          "filePaths": [
+            "index.html"
+          ],
+          "raw": "- [ ] T046 Add basic SEO/meta in `index.html` (title, description, social preview placeholders)"
+        },
+        {
+          "id": "T047",
+          "done": false,
+          "parallel": true,
+          "story": null,
+          "description": "Add project README and run instructions in `README.md` (use `specs/001-tower-hanoi-site/quickstart.md` as source)",
+          "filePaths": [
+            "README.md",
+            "specs/001-tower-hanoi-site/quickstart.md"
+          ],
+          "raw": "- [ ] T047 [P] Add project README and run instructions in `README.md` (use `specs/001-tower-hanoi-site/quickstart.md` as source)"
+        },
+        {
+          "id": "T048",
+          "done": false,
+          "parallel": false,
+          "story": null,
+          "description": "Validate Pages deploy end-to-end by ensuring `.github/workflows/pages.yml` builds and publishes `dist/`",
+          "filePaths": [
+            ".github/workflows/pages.yml",
+            "dist/"
+          ],
+          "raw": "- [ ] T048 Validate Pages deploy end-to-end by ensuring `.github/workflows/pages.yml` builds and publishes `dist/`"
+        },
+        {
+          "id": "T049",
+          "done": true,
+          "parallel": true,
+          "story": null,
+          "description": "Add MIT license file at repo root in `LICENSE` and ensure `src/components/AppFooter.vue` links “MIT License” to it",
+          "filePaths": [
+            "src/components/AppFooter.vue"
+          ],
+          "raw": "- [x] T049 [P] Add MIT license file at repo root in `LICENSE` and ensure `src/components/AppFooter.vue` links “MIT License” to it"
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "dependencyGraph": "Setup (Phase 1) → Foundational (Phase 2) → US1 → US2 → US3 → US4 → US5 → Polish (Phase 8)",
+    "edges": [
+      {
+        "from": "Setup (Phase 1)",
+        "to": "Foundational (Phase 2)"
+      },
+      {
+        "from": "Foundational (Phase 2)",
+        "to": "US1"
+      },
+      {
+        "from": "US1",
+        "to": "US2"
+      },
+      {
+        "from": "US2",
+        "to": "US3"
+      },
+      {
+        "from": "US3",
+        "to": "US4"
+      },
+      {
+        "from": "US4",
+        "to": "US5"
+      },
+      {
+        "from": "US5",
+        "to": "Polish (Phase 8)"
+      }
+    ]
+  }
+}
