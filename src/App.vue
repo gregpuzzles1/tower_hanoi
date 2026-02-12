@@ -90,6 +90,10 @@ function newGameFromWin() {
 </template>
 
 <style scoped>
+main {
+  padding-bottom: 80px;
+}
+
 .content {
   max-width: 960px;
   margin: 0 auto;

@@ -31,6 +31,8 @@ const licenseUrl = base.endsWith('/') ? `${base}LICENSE` : `${base}/LICENSE`
 .footer {
   padding: 20px;
   opacity: 0.92;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .row {
