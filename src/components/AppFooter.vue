@@ -8,9 +8,7 @@ const yearText = computed(() => (currentYear > startYear ? `${startYear}–${cur
 const repoUrl = 'https://github.com/gregpuzzles1/tower_hanoi'
 const issuesUrl = 'https://github.com/gregpuzzles1/tower_hanoi/issues/new'
 const emailUrl = 'mailto:gregpuzzles1@gmail.com'
-
-const base = import.meta.env.BASE_URL
-const licenseUrl = base.endsWith('/') ? `${base}LICENSE` : `${base}/LICENSE`
+const licenseUrl = 'https://github.com/gregpuzzles1/tower_hanoi/blob/main/LICENSE'
 </script>
 
 <template>
@@ -21,7 +19,7 @@ const licenseUrl = base.endsWith('/') ? `${base}LICENSE` : `${base}/LICENSE`
         <a :href="repoUrl" target="_blank" rel="noreferrer">GitHub</a>
         <a :href="issuesUrl" target="_blank" rel="noreferrer">Issues</a>
         <a :href="emailUrl">Email</a>
-        <a :href="licenseUrl">MIT License</a>
+        <a :href="licenseUrl" target="_blank" rel="noreferrer">MIT License</a>
       </div>
     </div>
   </footer>
