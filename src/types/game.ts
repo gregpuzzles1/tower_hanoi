@@ -58,7 +58,9 @@ export function isTowerOrdered(tower: number[]): boolean {
 }
 
 export function isSolved(towers: [number[], number[], number[]], discCount: number): boolean {
-  return towers[2].length === discCount && isTowerOrdered(towers[2])
+  // Win condition: all discs on tower 1 or tower 2 (not the starting tower 0)
+  return (towers[1].length === discCount && isTowerOrdered(towers[1])) ||
+         (towers[2].length === discCount && isTowerOrdered(towers[2]))
 }
 
 export function isLegalMove(
