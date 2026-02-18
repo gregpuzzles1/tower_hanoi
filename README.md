@@ -4,6 +4,8 @@ A modern Tower of Hanoi puzzle site built with **Vue 3 + TypeScript + Vite**, de
 
 Live site (GitHub Pages): https://gregpuzzles1.github.io/tower_hanoi/
 
+![Demo](assets/demo.gif)
+
 ## Controls
 
 - **Mouse / touch**: click/tap a source tower, then a destination tower
