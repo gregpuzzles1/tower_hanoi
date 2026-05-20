@@ -37,7 +37,7 @@ npm run preview
 ## Notes
 
 - Vite is configured for project-pages base path `/tower_hanoi/`.
-- Vue Router uses hash history to avoid GitHub Pages deep-link 404s.
+- Vue Router uses HTML5 history mode, so URLs stay clean without `/#/`.
 
 ## License
 
